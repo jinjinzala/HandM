@@ -27,6 +27,7 @@
 	  <h3>게시판 제목 : ${dto.boardContents}</h3>
 	 <h3>작성 날짜 :${dto.boardDate}</h3>
 	 <h3>조회수 : ${dto.boardTotal}</h3>
+	 <a href="./delete?boardNum=${dto.boardNum}">삭제하기</a>
 	</c:if>
 	
 	<!-- boardnum이 존재하지 않을떄 -->
@@ -36,7 +37,9 @@
 	
 	
 	<!-- 시간이 있을때 여기 예븐 버튼을 넣어주자~ -->
+	<a href="./update?boardNum=${dto.boardNum}">게시판수정</a>
 	<a href="./list">목록으로</a>
+	
 </div>
 
 </body>

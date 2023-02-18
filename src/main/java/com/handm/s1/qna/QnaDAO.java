@@ -27,7 +27,19 @@ public class QnaDAO {
 	
 		return sqlSession.selectOne(NAMESPACE+"getQnaDetail", qnaDTO);
 	}
+
+	public int setQnaAdd(QnaDTO qnaDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setQnaAdd",qnaDTO);
+	}
 	
+	public int setQnaUpdate(QnaDTO qnaDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"setQnaUpdate", qnaDTO);
+	}
 	
+	public int setQnaDelete (QnaDTO qnaDTO) throws Exception {
+		return sqlSession.delete(NAMESPACE+"setQnaDelete", qnaDTO);
+	}
+	
+
 	
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -40,7 +41,54 @@ public class QnaController {
 	
 	return mv;
 			
+	}
+	
+	@RequestMapping(value="add" , method = RequestMethod.GET)
+	public ModelAndView setQnaAdd(ModelAndView mv) throws Exception {
+		mv.setViewName("qna/add");
 		
+		return mv;
+	}
+	
+	@RequestMapping(value="add" , method = RequestMethod.POST)
+	public ModelAndView setQnaAdd(QnaDTO qnaDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = qnaService.setQnaAdd(qnaDTO);
+		
+		mv.setViewName("redirect:./list");
+		
+		return mv;
+	}
+	
+	@RequestMapping(value ="delete", method = RequestMethod.GET)
+	public ModelAndView setQnaDelete(QnaDTO qnaDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = qnaService.setQnaDelete(qnaDTO);
+		
+		mv.setViewName("redirect:./list");
+		
+		return mv;
+	
+	}
+	//수정 폼 이동
+	@RequestMapping(value="update" , method = RequestMethod.GET)
+	public ModelAndView setQnaUpdate(QnaDTO qnaDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		// 번호를 주면 다 가지고 오는 디테일 재활용 qna 서비스에 있는 디테일에서 정보를 가져온다 하나만 가져오니깐 dto에 넣어줘
+		qnaDTO = qnaService.getQnaDetail(qnaDTO);
+		
+		mv.setViewName("qna/update");
+		//jsp로 보내는 mv에 디테일 정보 보내주기 addobject 별명은 마음대로인데 강사님이 dto를 쓰시니깐 나두 dto로 
+		mv.addObject("dto",qnaDTO);
+		return mv;
+	}
+	
+	//수정 
+	@RequestMapping(value = "update",method = RequestMethod.POST)
+	public ModelAndView setQnaUpdate(QnaDTO qnaDTO, ModelAndView mv) throws Exception {
+		int result = qnaService.setQnaUpdate(qnaDTO);
+		mv.setViewName("redirect:./list");
+		return mv;
 	}
 	
 	
