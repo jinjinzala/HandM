@@ -13,8 +13,8 @@
         <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
         <li class="nav-item"><a href="/qna/list" class="nav-link">qna list</a></li>
         <li class="nav-item"><a href="/qna/add" class="nav-link">add</a></li>
-        <li class="nav-item"><a href="/qna/detail" class="nav-link">detail</a></li>
-        <li class="nav-item"><a href="/qna/update" class="nav-link">update</a></li>
+        <li class="nav-item"><a href="/qna/detail" class="nav-link">기타기타</a></li>
+        <li class="nav-item"><a href="/qna/update" class="nav-link">클릭하지마시오</a></li>
       </ul>
     </header>
   </div>c  

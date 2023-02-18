@@ -55,7 +55,7 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 		int result = qnaService.setQnaAdd(qnaDTO);
 		
-		mv.setViewName("redirect:./list");
+		mv.setViewName("redirect: ./list");
 		
 		return mv;
 	}
@@ -65,7 +65,7 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 		int result = qnaService.setQnaDelete(qnaDTO);
 		
-		mv.setViewName("redirect:./list");
+		mv.setViewName("redirect: ./list");
 		
 		return mv;
 	
@@ -87,7 +87,7 @@ public class QnaController {
 	@RequestMapping(value = "update",method = RequestMethod.POST)
 	public ModelAndView setQnaUpdate(QnaDTO qnaDTO, ModelAndView mv) throws Exception {
 		int result = qnaService.setQnaUpdate(qnaDTO);
-		mv.setViewName("redirect:./list");
+		mv.setViewName("redirect: ./list");
 		return mv;
 	}
 	

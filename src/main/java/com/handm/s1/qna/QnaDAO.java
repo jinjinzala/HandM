@@ -15,6 +15,11 @@ public class QnaDAO {
 	
 
 	
+	public Long getBoardNum() throws  Exception{
+		return sqlSession.selectOne(NAMESPACE+"getBoardNum");
+
+	}
+	
 	
 	//id는 메서드명과 동일하게 넣기 
 	public List<QnaDTO> getQnaList() throws Exception {

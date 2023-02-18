@@ -5,7 +5,10 @@
   
 <mapper namespace="com.handm.s1.qna.QnaDAO">
   	
-     
+    <select id="getBoardNum" resultType="Long">
+  	SELECT QNA_SEQ.NEXTVAL FROM DUAL
+	</select>
+	
     <select id="getQnaList"  resultType="QnaDTO">
 	SELECT *
 	FROM BOARD
@@ -31,5 +34,7 @@
 	BOARDDATE=#{boardDate}, BOARDTOTAL=#{boardTotal}
 	WHERE BOARDNUM = ${boardNum}
 	</update>
+	
+
 	
 </mapper>

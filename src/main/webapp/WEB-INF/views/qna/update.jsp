@@ -9,7 +9,8 @@
 </head>
 <body>
 	<from action="./update" method="post">
-	
+		<!-- type="hidden" 노출안되게해주는거  readonly="readonly" 읽기전용-->
+		<input type="hidden" name="boardNum" readonly="readonly" value="${dto.boardNum}">
 		<input type="text" name="boardTitle" value="${dto.boardTitle}"  placeholder="게시판 제목">
 		<input type="text" name="boardWriter" value="${dto.boardWriter}"  placeholder="게시판 작성자">
 		<input type="text" name="boardDate"  value="${dto.boardDate}" placeholder="작성날짜">
