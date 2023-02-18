@@ -1,9 +1,12 @@
 package com.handm.s1.util;
 
 public class Pager {
-	//검색 종료
-	private  String kind;
+
+	//검색 종료(사용할 column)
+	private String kind;
 	private String search;
+	
+	
 	
 	public String getKind() {
 		return kind;

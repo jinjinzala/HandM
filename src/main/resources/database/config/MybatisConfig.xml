@@ -8,7 +8,7 @@
     
     <typeAlias type="com.handm.s1.qna.QnaDTO" alias="QnaDTO"/>
   	<typeAlias type="java.lang.Long" alias="Long"/>
-    
+   <typeAlias type="com.handm.s1.util.Pager" alias="Pager"/> 
     
     
     
