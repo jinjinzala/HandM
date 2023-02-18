@@ -5,17 +5,17 @@
   
 <mapper namespace="com.handm.s1.qna.QnaDAO">
   	
-    <!-- 전체 row의 갯수를 가져오는것 -->
-     <select id="getQnaCount"    parameterType="Pager" resultType="Long">
-     SELECT COUNT(BOARDNUM)  FROM BOARD
-     <include refid="searchCondition"></include> 
-     </select>
      
-    <select id="getQnaList" parameterType="Pager" resultType="QnaDTO">
-	SELECT BOARDNUM,BOARDTITLE, BOARDWRITER, BOARDDATE, BOARDTOTAL
+    <select id="getQnaList"  resultType="QnaDTO">
+	SELECT *
 		FROM BOARD
-		ORDER BY BOARDNUM DESC
    </select>
-     <!-- parameterType="Pager"  --> 
+    
+    <select id="getQnaDetail" parameterType="QnaDTO" resultType="QnaDTO">
+	SELECT *
+	FROM BOARD
+	WHERE BOARDNUM  = ${boardNum} 
+   </select>
+
 
 </mapper>

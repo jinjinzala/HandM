@@ -19,8 +19,30 @@
 <div class="row col-md-7 mx-auto">
 
 	<h1>Board List</h1>
+	<table>
 	
-
+	<thead>
+	<tr>
+	<th>글번호</th>
+	<th>글제목</th>
+	<th>작성자</th>
+	<th>작성날짜</th>
+	<th>조회수</th>
+	</tr>
+	</thead>
+	<tbody>
+	<c:forEach items="${list}" var="dto">
+	 <tr>
+	 <!-- pagesocope는 생략가능 var=dto는 get뒤에 있는 변수명 똑같이 적어주기-->
+	 <td><a href="./detail?boardNum=${dto.boardNum}">${pageScope.dto.boardNum}</a></td>
+	 <td>${pageScope.dto.boardTitle}</td>
+	 <td>${pageScope.dto.boardWriter}</td>
+	 <td>${pageScope.dto.boardDate}</td>
+	 <td>${pageScope.dto.boardTotal}</td>
+	 </tr>
+</c:forEach>
+</tbody>
+</table>
 </div>
 	
 	<c:import url="../template/common_js.jsp"></c:import>

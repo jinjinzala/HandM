@@ -6,7 +6,16 @@ public class QnaDTO {
 	private String boardContents;
 	private String boardDate;
 	private Long boardTotal;
+	private String boardWriter;
 	
+	
+	
+	public String getBoardWriter() {
+		return boardWriter;
+	}
+	public void setBoardWriter(String boardWriter) {
+		this.boardWriter = boardWriter;
+	}
 	
 	public Long getBoardNum() {
 		return boardNum;
