@@ -37,6 +37,10 @@
 			<label for="boardTotal" class="form-label">0 </label>
   			<input type="text" class="form-control" id="boardTotal" name="boardTotal">
  		</div>
+ 			<div class="col-12">
+    		<label for="files" class="form-label">이미지 첨부</label>
+    		<input type="file" class="form-control" id="files" name="pic">
+  		</div>
  		<div class ="col-12">
 			<label for="boardContents" class="form-label">내용</label>
   			<input type="text" class="form-control" id="boardContents" name="boardContents">

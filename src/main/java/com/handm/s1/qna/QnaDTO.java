@@ -7,9 +7,15 @@ public class QnaDTO {
 	private String boardDate;
 	private Long boardTotal;
 	private String boardWriter;
+	private QnaImgDTO qnaImgDTO;
 	
 	
-	
+	public QnaImgDTO getQnaImgDTO() {
+		return qnaImgDTO;
+	}
+	public void setQnaImgDTO(QnaImgDTO qnaImgDTO) {
+		this.qnaImgDTO = qnaImgDTO;
+	}
 	public String getBoardWriter() {
 		return boardWriter;
 	}

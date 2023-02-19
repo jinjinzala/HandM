@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
+
 @Repository
 public class QnaDAO {
 	
@@ -45,6 +47,8 @@ public class QnaDAO {
 		return sqlSession.delete(NAMESPACE+"setQnaDelete", qnaDTO);
 	}
 	
-
+	public int setQnaImgAdd(QnaImgDTO qnaImgDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"setQnaImgAdd", qnaImgDTO);
+	}
 	
 }

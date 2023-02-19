@@ -35,6 +35,9 @@
 	WHERE BOARDNUM = ${boardNum}
 	</update>
 	
-
+	<insert id="setQnaImgAdd" parameterType="QnaImgDTO">
+	  INSERT INTO BOARD
+	  VALUES (QNA_SEQ.NEXTVAL, #{fileName}, #{oriName}, #{boardNum})
+	  </insert>
 	
 </mapper>
