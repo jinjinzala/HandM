@@ -5,15 +5,53 @@
   
 <mapper namespace="com.handm.s1.qna.QnaDAO">
   	
+  	
+  	 <sql id="searchCondition">
+       <if test="kind == 'contents'">
+          WHERE BOARDCONTENTS LIKE '%' || #{search} || '%'
+       </if>
+       
+       <if test="kind == 'title'">
+          WHERE BOARDTITLE LIKE '%' || #{search} || '%'
+       </if>
+    </sql>
+  	
+  	<sql id="searchCondition2">
+       WHERE 
+         <choose>
+            <when test="kind == 'contents'">
+               BOARDCONTENTS
+            </when>
+            <otherwise>
+               BOARDTITLE
+            </otherwise>
+         </choose>   
+      LIKE '%' || #{search} || '%'
+    </sql>
+  
+  	
     <select id="getBoardNum" resultType="Long">
   	SELECT QNA_SEQ.NEXTVAL FROM DUAL
 	</select>
 	
-    <select id="getQnaList"  resultType="QnaDTO">
-	SELECT *
-	FROM BOARD
+    <select id="getQnaList" parameterType="Pager"  resultType="QnaDTO">
+	SELECT * FROM 
+	(
+	SELECT ROWNUM R, B.* FROM 
+			(SELECT * FROM BOARD
+			<include refid="searchCondition2"></include>
+			ORDER BY BOARDNUM DESC )
+			 B 
+			)
+	WHERE R BETWEEN #{startRow} AND  #{lastRow}
    </select>
-    
+   
+      <!-- 전체 row의 갯수를 가져오는것 -->
+     <select id="getQnaCount"    parameterType="Pager" resultType="Long">
+     SELECT COUNT(BOARDNUM)  FROM BOARD
+      <include refid="searchCondition"></include>
+     </select>
+     
     <select id="getQnaDetail" parameterType="QnaDTO" resultType="QnaDTO">
 	SELECT *
 	FROM BOARD
@@ -39,7 +77,7 @@
 	</update>
 	
 	 <insert id="setQnaImgAdd" parameterType="QnaImgDTO">
-	  INSERT INTO BOARD
+	  INSERT INTO QNAIMG
 	  VALUES (QNA_SEQ.NEXTVAL,#{boardNum},#{fileName},#{oriName})
 	  </insert>
 	  

@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.handm.s1.util.Pager;
+
 @Repository
 public class QnaDAO {
 	
@@ -20,10 +22,15 @@ public class QnaDAO {
 
 	}
 	
+	public Long getQnaCount(Pager pager) throws Exception {
+
+		return sqlSession.selectOne(NAMESPACE+"getQnaCount");
+
+	}
 	
 	//id는 메서드명과 동일하게 넣기 
-	public List<QnaDTO> getQnaList() throws Exception {
-		List<QnaDTO> ar = sqlSession.selectList(NAMESPACE+"getQnaList");
+	public List<QnaDTO> getQnaList(Pager pager) throws Exception {
+		List<QnaDTO> ar = sqlSession.selectList(NAMESPACE+"getQnaList",pager);
 		return ar;
 	}
 

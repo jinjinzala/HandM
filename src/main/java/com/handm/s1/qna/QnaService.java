@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.handm.s1.util.FileManager;
+import com.handm.s1.util.Pager;
 
 
 
@@ -27,9 +28,11 @@ public class QnaService {
 	 
 	
 	//페이저부터 만들어야겠다 희진아 정신차려 
-	 public List<QnaDTO> getQnaList() throws Exception{
-     List<QnaDTO> ar = qnaDAO.getQnaList();
-	 return ar;
+	 public List<QnaDTO> getQnaList(Pager pager) throws Exception{
+	 pager.makeRow();
+	 Long totalCount = qnaDAO.getQnaCount(pager);
+	 pager.makeNum(totalCount);
+	 return qnaDAO.getQnaList(pager);
 	 }
 	 
 	 public QnaDTO getQnaDetail(QnaDTO qnaDTO) throws Exception {
