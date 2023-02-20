@@ -1,13 +1,22 @@
 package com.handm.s1.qna;
 
+import java.sql.Date;
+
 public class QnaDTO {
 	private Long boardNum;
 	private String boardTitle;
 	private String boardContents;
-	private String boardDate;
+	private Date boardDate;
+	
+	
+	public Date getBoardDate() {
+		return boardDate;
+	}
+	public void setBoardDate(Date boardDate) {
+		this.boardDate = boardDate;
+	}
 	private Long boardTotal;
 	private String boardWriter;
-	
 	
 	
 	public String getBoardWriter() {
@@ -35,12 +44,11 @@ public class QnaDTO {
 	public void setBoardContents(String boardContents) {
 		this.boardContents = boardContents;
 	}
-	public String getBoardDate() {
-		return boardDate;
-	}
-	public void setBoardDate(String boardDate) {
-		this.boardDate = boardDate;
-	}
+
+	/*
+	 * public String getBoardDate() { return boardDate; } public void
+	 * setBoardDate(String boardDate) { this.boardDate = boardDate; }
+	 */
 	public Long getBoardTotal() {
 		return boardTotal;
 	}

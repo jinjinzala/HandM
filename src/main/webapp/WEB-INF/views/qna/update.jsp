@@ -5,10 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상품 수정 페이지</title>
 </head>
 <body>
-	<from action="./update" method="post">
+	<h1>Update page</h1>
+	<form action="./update" method="post">
 		<!-- type="hidden" 노출안되게해주는거  readonly="readonly" 읽기전용-->
 		<input type="hidden" name="boardNum" readonly="readonly" value="${dto.boardNum}">
 		<input type="text" name="boardTitle" value="${dto.boardTitle}"  placeholder="게시판 제목">
@@ -19,6 +20,6 @@
 		<textarea rows="" cols="" name="boardContents" placeholder="게시판 내용" >"${dto.boardContents}"</textarea>
 		
 		<input type="submit" value="수정">
-	</from>
+	</form>
 </body>
 </html>

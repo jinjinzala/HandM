@@ -19,7 +19,7 @@
 	</div>
 	
 	<!-- 같은 add페이지로 가는데 이름이 같으니깐 메서드 형식인 post로 구분한다 -->
-	<from class = "row g-3 ms-auto" action="./add" method="post" enctype="multipart/form-data">
+	<form class = "row g-3 ms-auto" action="./add" method="post" enctype="multipart/form-data">
 	
 		<div class ="col-12">
 			<label for="boardTitle" class="form-label">게시판 제목 </label>
@@ -57,7 +57,7 @@
 	    <button type="submit" class="btn btn-primary">등록</button>
 
 		
-	</from>
+	</form>
 	   </div>
    <c:import url="../template/common_js.jsp"></c:import>
 </body>
