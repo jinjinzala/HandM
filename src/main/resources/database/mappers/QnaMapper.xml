@@ -21,8 +21,11 @@
    </select>
 
 	<insert id="setQnaAdd" parameterType="QnaDTO">
+	 <selectKey keyProperty="boardNum" resultType="Long" order="BEFORE">
+      SELECT QNA_SEQ.NEXTVAL FROM DUAL
+     </selectKey>
 	INSERT INTO BOARD 
-	VALUES(QNA_SEQ.NEXTVAL, #{boardTitle},#{boardContents},#{boardWriter},#{boardDate},#{boardTotal})
+	VALUES(#{boardNum}, #{boardTitle},#{boardContents},#{boardWriter},#{boardDate},#{boardTotal})
 	</insert>
 
 	<delete id="setQnaDelete" parameterType="QnaDTO">
@@ -35,6 +38,12 @@
 	WHERE BOARDNUM = ${boardNum}
 	</update>
 	
+	 <insert id="setQnaImgAdd" parameterType="QnaImgDTO">
+	  INSERT INTO BOARD
+	  VALUES (QNA_SEQ.NEXTVAL,#{boardNum},#{fileName},#{oriName})
+	  </insert>
+	  
 
+	
 	
 </mapper>

@@ -45,6 +45,10 @@ public class QnaDAO {
 		return sqlSession.delete(NAMESPACE+"setQnaDelete", qnaDTO);
 	}
 	
+	public int setQnaImgAdd(QnaImgDTO qnaImgDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"setQnaImgAdd", qnaImgDTO);
+	}
+	
 
 	
 }

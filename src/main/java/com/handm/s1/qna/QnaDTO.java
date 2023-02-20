@@ -7,8 +7,14 @@ public class QnaDTO {
 	private String boardTitle;
 	private String boardContents;
 	private Date boardDate;
+	private QnaImgDTO qnaImgDTO;
 	
-	
+	public QnaImgDTO getQnaImgDTO() {
+		return qnaImgDTO;
+	}
+	public void setQnaImgDTO(QnaImgDTO qnaImgDTO) {
+		this.qnaImgDTO = qnaImgDTO;
+	}
 	public Date getBoardDate() {
 		return boardDate;
 	}

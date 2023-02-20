@@ -42,7 +42,10 @@
   			<input type="text" class="form-control" id="boardContents" name="boardContents">
  		</div>
  		
- 		
+ 		<div class ="col-12">
+			<label for="files" class="form-label">Image</label>
+  			<input type="file" class="form-control" id="files" name="pic">
+ 		</div>
  		
  		
  		
