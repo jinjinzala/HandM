@@ -62,9 +62,9 @@ public class QnaController {
 		System.out.println("size : "+pic.getSize());
 		System.out.println(session.getServletContext());
 		
-	
+		System.out.println(qnaDTO.getBoardNum());
 		int result = qnaService.setQnaAdd(qnaDTO, pic);
-		
+		System.out.println(qnaDTO.getBoardNum());
 		mv.setViewName("redirect: ./list");
 		
 		return mv;

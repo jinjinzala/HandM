@@ -5,7 +5,6 @@
   
 <mapper namespace="com.handm.s1.qna.QnaDAO">
   	
-  	
   	 <sql id="searchCondition">
        <if test="kind == 'contents'">
           WHERE BOARDCONTENTS LIKE '%' || #{search} || '%'
@@ -60,7 +59,7 @@
 
 	<insert id="setQnaAdd" parameterType="QnaDTO">
 	 <selectKey keyProperty="boardNum" resultType="Long" order="BEFORE">
-      SELECT QNA_SEQ.NEXTVAL FROM DUAL
+      SELECT QNAA_SEQ.NEXTVAL FROM DUAL
      </selectKey>
 	INSERT INTO BOARD 
 	VALUES(#{boardNum}, #{boardTitle},#{boardContents},#{boardWriter},#{boardDate},#{boardTotal})
@@ -76,12 +75,9 @@
 	WHERE BOARDNUM = ${boardNum}
 	</update>
 	
-	 <insert id="setQnaImgAdd" parameterType="QnaImgDTO">
-	  INSERT INTO QNAIMG
-	  VALUES (QNA_SEQ.NEXTVAL,#{boardNum},#{fileName},#{oriName})
-	  </insert>
+	<insert id="setQnaImgAdd" parameterType="QnaImgDTO">
+	 INSERT INTO QNAIMG
+	 VALUES (QNA_SEQ.NEXTVAL,#{boardNum},#{fileName},#{oriName})
+	</insert>
 	  
-
-	
-	
 </mapper>

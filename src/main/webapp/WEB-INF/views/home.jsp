@@ -9,10 +9,15 @@
 <body>
  <!-- 서버 내부 주소, 상대 경로  -->
   <c:import url="./template/header.jsp"></c:import>
-<h1>
- 	Hello world!  
-</h1>
+ <div class="container-fluid-magin-5">
 
+      <div class= "container-fluid">
+		  <div class= "row col-md-6 offset-md-3">
+		  	<div id="carouselExample" class="carousel slide">
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		    <img src="/resources/images/naver.jpg" class="img-fluid" alt="...">
+		    </div>
 <P>  The time on the server is ${serverTime}. </P>
 
 </body>
